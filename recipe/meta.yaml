@@ -22,12 +22,11 @@ requirements:
     - python >=3.7
     - setuptools-scm
   run:
-    - magicgui >=0.3.3
-    - napari >=0.4.12
-    - napari-plugin-engine >=0.1.9
+    - magicgui >=0.3.7
+    - napari >=0.4.15
     - numpy
     - python >=3.7
-    - scikit-image
+    - scikit-image >=0.19.2
     - toolz
 
 test:
