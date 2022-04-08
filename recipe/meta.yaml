@@ -1,5 +1,5 @@
 {% set name = "affinder" %}
-{% set version = "0.2.2" %}
+{% set version = "0.2.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/affinder-{{ version }}.tar.gz
-  sha256: 77ce5a4602c50fb60e1ad4c52c2ec4a865e80f1a7057af061c06ca3bc8b0e666
+  sha256: 175ec3282861f0d0f624967bc9be090579b4392cfc6636211cad71f98118d805
 
 build:
   entry_points:
@@ -38,7 +38,7 @@ test:
     - pip check
     - export QT_DEBUG_PLUGINS=1  # [not win]
     - affinder --help  # [not linux]
-    - DISPLAY=localhost:1.0 xvfb-run -a affinder --help  # [linux]
+    - DISPLAY=localhost: 1.0 xvfb-run -a affinder --help  # [linux]
   requires:
     - pip
 
