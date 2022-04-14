@@ -30,14 +30,15 @@ requirements:
     - toolz
 
 test:
-  imports:
-    - affinder
+  imports:      # [not linux]
+    - affinder  # [not linux]
   commands:
     - pip list
     - pip check
     - export QT_DEBUG_PLUGINS=1  # [not win]
     - affinder --help  # [not linux]
     - "DISPLAY=localhost:1.0 xvfb-run -a affinder --help"  # [linux]
+    - "DISPLAY=localhost:1.0 xvfb-run -a python -c 'import affinder'"  # [linux]
   requires:
     - pip
 
