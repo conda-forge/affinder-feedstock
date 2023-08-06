@@ -24,7 +24,10 @@ export CONFIG_FILE="${CI_SUPPORT}/${CONFIG}.yaml"
 cat >~/.condarc <<CONDARC
 
 conda-build:
- root-dir: ${FEEDSTOCK_ROOT}/build_artifacts
+  root-dir: ${FEEDSTOCK_ROOT}/build_artifacts
+pkgs_dirs:
+  - ${FEEDSTOCK_ROOT}/build_artifacts/pkg_cache
+  - /opt/conda/pkgs
 
 CONDARC
 
@@ -44,7 +47,7 @@ source run_conda_forge_build_setup
 # "recipe/yum_requirements.txt" file. After updating that file,
 # run "conda smithy rerender" and this line will be updated
 # automatically.
-/usr/bin/sudo -n yum install -y mesa-libGL-devel xorg-x11-server-Xvfb libXrender
+/usr/bin/sudo -n yum install -y mesa-libGL-devel xorg-x11-server-Xvfb libXrender mesa-dri-drivers dbus-libs libxkbcommon-x11
 
 
 # make the build number clobber
@@ -53,6 +56,10 @@ make_build_number "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
 
 
 ( endgroup "Configuring conda" ) 2> /dev/null
+
+if [[ -f "${FEEDSTOCK_ROOT}/LICENSE.txt" ]]; then
+  cp "${FEEDSTOCK_ROOT}/LICENSE.txt" "${RECIPE_ROOT}/recipe-scripts-license.txt"
+fi
 
 if [[ "${BUILD_WITH_CONDA_DEBUG:-0}" == 1 ]]; then
     if [[ "x${BUILD_OUTPUT_ID:-}" != "x" ]]; then
