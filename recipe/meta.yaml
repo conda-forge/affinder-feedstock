@@ -24,7 +24,7 @@ requirements:
   run:
     - magicgui >=0.3.7
     - napari >=0.4.17
-    - npe2>=0.1.2
+    - npe2 >=0.1.2
     - numpy
     - python >=3.9
     - scikit-image >=0.19.2
