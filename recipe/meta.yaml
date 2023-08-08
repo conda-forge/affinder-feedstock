@@ -42,6 +42,7 @@ test:
     - "DISPLAY=localhost:1.0 xvfb-run -a python -c 'import affinder'"  # [linux]
   requires:
     - pip
+    - pyqt
 
 about:
   home: https://github.com/jni/affinder
