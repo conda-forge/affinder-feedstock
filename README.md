@@ -1,11 +1,11 @@
-About affinder
-==============
+About affinder-feedstock
+========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/affinder-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/jni/affinder
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/affinder-feedstock/blob/main/LICENSE.txt)
 
 Summary: Quickly find the affine matrix mapping one image to another using manual correspondence points annotation
 

@@ -1,5 +1,5 @@
 {% set name = "affinder" %}
-{% set version = "0.2.3" %}
+{% set version = "0.3.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/affinder-{{ version }}.tar.gz
-  sha256: 175ec3282861f0d0f624967bc9be090579b4392cfc6636211cad71f98118d805
+  sha256: 509730f27199c3b18a2699a11b274aee851613eaeb1532b993242c78bf1733bb
 
 build:
   entry_points:
@@ -19,18 +19,19 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python >=3.9
     - setuptools-scm
   run:
     - magicgui >=0.3.7
-    - napari >=0.4.15
+    - napari >=0.4.17
+    - npe2 >=0.1.2
     - numpy
-    - python >=3.7
+    - python >=3.9
     - scikit-image >=0.19.2
     - toolz
 
 test:
-  imports:      # [not linux]
+  imports:   # [not linux]
     - affinder  # [not linux]
   commands:
     - pip list
@@ -41,6 +42,7 @@ test:
     - "DISPLAY=localhost:1.0 xvfb-run -a python -c 'import affinder'"  # [linux]
   requires:
     - pip
+    - pyqt
 
 about:
   home: https://github.com/jni/affinder
