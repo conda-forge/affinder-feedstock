@@ -1,12 +1,13 @@
 {% set name = "affinder" %}
 {% set version = "0.4.0" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/affinder-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/affinder-{{ version }}.tar.gz
   sha256: 1f9281e4f4a41340e5e1b479e5e375c8abb984ae2f1e629147352cfec24ca085
 
 build:
@@ -14,19 +15,20 @@ build:
     - affinder=affinder.main:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.9
+    - python {{ python_min }}
+    - setuptools
     - setuptools-scm
   run:
     - magicgui >=0.3.7
     - napari >=0.4.17
     - npe2 >=0.1.2
     - numpy
-    - python >=3.9
+    - python >={{ python_min }}
     - scikit-image >=0.19.2
     - toolz
 
@@ -43,6 +45,7 @@ test:
   requires:
     - pip
     - pyqt
+    - python {{ python_min }}
 
 about:
   home: https://github.com/jni/affinder
