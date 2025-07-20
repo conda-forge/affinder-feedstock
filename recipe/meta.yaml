@@ -1,5 +1,5 @@
 {% set name = "affinder" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,14 +8,14 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/affinder-{{ version }}.tar.gz
-  sha256: 1f9281e4f4a41340e5e1b479e5e375c8abb984ae2f1e629147352cfec24ca085
+  sha256: e4bb0942a8f863871a6f79426797122cb09ed23b6bc3c1ff1dae8ff91028dc4b
 
 build:
   entry_points:
     - affinder=affinder.main:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
